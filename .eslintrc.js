@@ -1,0 +1,23 @@
+module.exports = {
+  root: true,
+  env: {
+    node: true,
+  },
+  extends: ['prettier', 'prettier/babel', 'prettier/vue', 'plugin:vue/base'],
+  plugins: ['prettier'],
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        semi: false,
+        singleQuote: true,
+        trailingComma: 'all',
+      },
+    ],
+  },
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
+}
