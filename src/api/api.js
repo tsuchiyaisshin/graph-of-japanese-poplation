@@ -1,12 +1,15 @@
-import service from '../utils/service'
+import axios from 'axios'
 
 export const api = {
-    async getPrefectures() {
-        return await service
-            .get('@resas/api/v1/prefectures')
-            .then(result => {
-                return result.data
-            })
-            .catch(result => {})
-    },
+  async getPrefectures() {
+    return axios
+      .get('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
+        headers: { 'X-API-KEY': 'llzNcHIHWUR6iYIZ8mvRvgmvwLGTA5bZxgZtRZc0' },
+      })
+      .then(result => {
+        console.log(result.data)
+        return result.data
+      })
+      .catch(result => {})
+  },
 }
