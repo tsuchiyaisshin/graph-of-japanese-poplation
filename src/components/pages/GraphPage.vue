@@ -7,17 +7,18 @@
     </header>
     <div class="card-content">
       <button @click="apiTest">Test API</button>
-      <h1 class="card-title"></h1>
-      <p class="card-text"></p>
+      <PopulationLineChart></PopulationLineChart>
     </div>
   </section>
 </template>
 
 <script>
 import { api } from '../../api/api'
+import PopulationLineChart from '../atoms/PopulationLineChart'
 
 export default {
   name: 'GraphPage',
+  components: { PopulationLineChart },
   methods: {
     async apiTest() {
       const result = await api.getPrefectures()
