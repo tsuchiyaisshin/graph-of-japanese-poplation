@@ -6,11 +6,14 @@
       </div>
     </header>
     <div class="card-content">
-      <h4 style="text-align: left">都道府県</h4>
-      <select-box
-        v-for="prefecture in prefectures"
-        :name="prefecture.prefName"
-      ></select-box>
+      <h4 class="text-left">都道府県</h4>
+      <div class="container">
+        <select-box
+          v-for="prefecture in prefectures"
+          :name="prefecture.prefName"
+          :code="prefecture.prefCode"
+        ></select-box>
+      </div>
       <PopulationLineChart></PopulationLineChart>
     </div>
   </section>
@@ -30,7 +33,6 @@ export default {
   async mounted() {
     const result = await api.getPrefectures()
     this.prefectures = result
-    console.log(this.prefectures)
   },
 }
 </script>
@@ -47,9 +49,5 @@ export default {
   justify-content: center;
   height: 60px;
   padding: 0 2em;
-}
-
-.logo-img {
-  width: 70px;
 }
 </style>

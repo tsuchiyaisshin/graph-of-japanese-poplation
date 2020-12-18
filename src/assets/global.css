@@ -1,15 +1,28 @@
+/*アプリケーションイニシャライズ*/
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 90%;
+    justify-content: center;
     color: #2c3e50;
     margin-top: 60px;
 }
 
+/*grid関連*/
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+
+
+/*カード関連*/
 .card {
+    max-width: 500px;
+    grid-column: auto;
     margin: 30px auto;
-    width: 600px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px #ccc;
@@ -45,4 +58,9 @@
 }
 .card-link a:hover {
     color: #0090aa;
+}
+
+/*テキスト関連*/
+.text-left {
+    text-align: left;
 }
