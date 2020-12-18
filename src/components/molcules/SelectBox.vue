@@ -36,10 +36,8 @@ export default {
         result.forEach(item => {
           this.populationSeries.data.push(item.value)
         })
-        console.log('false')
         this.$emit('add', this.populationSeries, true)
       } else {
-        console.log('true')
         this.populationSeries = {
           name: '',
           data: [],

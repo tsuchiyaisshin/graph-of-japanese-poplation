@@ -4,6 +4,5 @@ import './assets/global.css'
 import VueApexCharts from 'vue3-apexcharts'
 
 const myApp = createApp(App)
-myApp.use(store)
 myApp.use(VueApexCharts)
 myApp.mount('#app')

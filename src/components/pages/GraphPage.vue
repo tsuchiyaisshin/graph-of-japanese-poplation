@@ -49,6 +49,14 @@ export default {
         this.series = this.series.filter(series => series.name !== args[0])
       }
       //TODO: 強制レンダリンを修正する。
+      /*
+      強制的レンダリングがない場合、graphの描画の反映がされない。
+      試したこと
+      ・watchで監視 ->  seriesを監視直接変更したが、変化なし
+      ・storeで管理 ->　storeを更新したが、変化なし
+      ・apex-chartのupdateSeries -> errorが発生、vue3.0に対応していない？
+      妥協策として、ifを使った強制レンダリングをしている。
+       */
       this.showChart = false
       this.$nextTick(() => (this.showChart = true))
     },

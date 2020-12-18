@@ -4,7 +4,7 @@ export const api = {
   async getPrefectures() {
     return axios
       .get('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
-        headers: { 'X-API-KEY': 'llzNcHIHWUR6iYIZ8mvRvgmvwLGTA5bZxgZtRZc0' },
+        headers: { 'X-API-KEY': process.env.VUE_APP_API_KEY },
       })
       .then(result => {
         return result.data.result
@@ -17,7 +17,7 @@ export const api = {
         'https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear',
         {
           params: { cityCode: '-', prefCode: code },
-          headers: { 'X-API-KEY': 'llzNcHIHWUR6iYIZ8mvRvgmvwLGTA5bZxgZtRZc0' },
+          headers: { 'X-API-KEY': process.env.VUE_APP_API_KEY },
         },
       )
       .then(result => {
