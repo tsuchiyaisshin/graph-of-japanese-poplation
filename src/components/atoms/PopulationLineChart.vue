@@ -27,6 +27,9 @@ export default {
         zoom: {
           enabled: false,
         },
+        animations: {
+          enabled: false,
+        },
       },
       dataLabels: {
         enabled: false,
@@ -62,31 +65,6 @@ export default {
           2035,
           2040,
           2045,
-        ],
-      },
-      tooltip: {
-        y: [
-          {
-            title: {
-              formatter: function(val) {
-                return val + ' (mins)'
-              },
-            },
-          },
-          {
-            title: {
-              formatter: function(val) {
-                return val + ' per session'
-              },
-            },
-          },
-          {
-            title: {
-              formatter: function(val) {
-                return val
-              },
-            },
-          },
         ],
       },
       grid: {
