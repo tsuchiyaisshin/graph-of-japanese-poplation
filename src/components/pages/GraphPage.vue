@@ -44,7 +44,6 @@ export default {
     async changeSeries(...args) {
       if (args[1]) {
         await this.series.push(args[0])
-        console.log('push')
       } else {
         this.series = this.series.filter(series => series.name !== args[0])
       }
