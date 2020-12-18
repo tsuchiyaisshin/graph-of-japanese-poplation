@@ -22,12 +22,20 @@ export default {
   },
   data: () => ({
     checked: false,
+    populationSeries: {
+      name: '',
+      data: [],
+    },
   }),
   methods: {
     async getPopulation() {
       if (!this.checked) {
         const result = await api.getPopulation(this.code)
-        console.log(result)
+        this.populationSeries.name = this.name
+        result.forEach(item => {
+          this.populationSeries.data.push(item.value)
+        })
+        this.$emit('add', this.populationSeries)
       }
     },
   },

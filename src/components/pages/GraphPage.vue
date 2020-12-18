@@ -12,9 +12,13 @@
           v-for="prefecture in prefectures"
           :name="prefecture.prefName"
           :code="prefecture.prefCode"
+          @add="addSeries"
         ></select-box>
       </div>
-      <PopulationLineChart></PopulationLineChart>
+      <PopulationLineChart
+        v-if="showChart"
+        :series="series"
+      ></PopulationLineChart>
     </div>
   </section>
 </template>
@@ -29,10 +33,19 @@ export default {
   components: { SelectBox, PopulationLineChart },
   data: () => ({
     prefectures: undefined,
+    series: [],
+    showChart: true,
   }),
   async mounted() {
     const result = await api.getPrefectures()
     this.prefectures = result
+  },
+  methods: {
+    async addSeries(...args) {
+      await this.series.push(args[0])
+      this.showChart = false
+      this.$nextTick(() => (this.showChart = true))
+    },
   },
 }
 </script>
