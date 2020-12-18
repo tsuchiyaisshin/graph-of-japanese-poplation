@@ -7,8 +7,7 @@ export const api = {
         headers: { 'X-API-KEY': 'llzNcHIHWUR6iYIZ8mvRvgmvwLGTA5bZxgZtRZc0' },
       })
       .then(result => {
-        console.log(result.data)
-        return result.data
+        return result.data.result
       })
       .catch(result => {})
   },

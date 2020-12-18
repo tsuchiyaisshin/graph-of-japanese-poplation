@@ -6,7 +6,11 @@
       </div>
     </header>
     <div class="card-content">
-      <button @click="apiTest">Test API</button>
+      <h4 style="text-align: left">都道府県</h4>
+      <select-box
+        v-for="prefecture in prefectures"
+        :name="prefecture.prefName"
+      ></select-box>
       <PopulationLineChart></PopulationLineChart>
     </div>
   </section>
@@ -15,14 +19,18 @@
 <script>
 import { api } from '../../api/api'
 import PopulationLineChart from '../atoms/PopulationLineChart'
+import SelectBox from '../molcules/SelectBox'
 
 export default {
   name: 'GraphPage',
-  components: { PopulationLineChart },
-  methods: {
-    async apiTest() {
-      const result = await api.getPrefectures()
-    },
+  components: { SelectBox, PopulationLineChart },
+  data: () => ({
+    prefectures: undefined,
+  }),
+  async mounted() {
+    const result = await api.getPrefectures()
+    this.prefectures = result
+    console.log(this.prefectures)
   },
 }
 </script>
