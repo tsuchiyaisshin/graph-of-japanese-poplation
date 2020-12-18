@@ -2,7 +2,7 @@
   <section class="card">
     <header class="header-1">
       <div class="header-inner">
-        <h3>Title</h3>
+        <h3>日本人口推移</h3>
       </div>
     </header>
     <div class="card-content">
@@ -26,7 +26,7 @@
 <script>
 import { api } from '../../api/api'
 import PopulationLineChart from '../atoms/PopulationLineChart'
-import SelectBox from '../molcules/SelectBox'
+import SelectBox from '../atoms/SelectBox'
 
 export default {
   name: 'GraphPage',

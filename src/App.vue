@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GraphPage from './components/pages/GraphPage'
+import GraphPage from './components/molcules/GraphPage'
 export default {
   name: 'App',
   components: { GraphPage },
