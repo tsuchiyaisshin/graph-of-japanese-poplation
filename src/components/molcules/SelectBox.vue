@@ -30,12 +30,21 @@ export default {
   methods: {
     async getPopulation() {
       if (!this.checked) {
+        // 1回目の表示の時は、データを取得する。
         const result = await api.getPopulation(this.code)
         this.populationSeries.name = this.name
         result.forEach(item => {
           this.populationSeries.data.push(item.value)
         })
-        this.$emit('add', this.populationSeries)
+        console.log('false')
+        this.$emit('add', this.populationSeries, true)
+      } else {
+        console.log('true')
+        this.populationSeries = {
+          name: '',
+          data: [],
+        }
+        this.$emit('add', this.name, false)
       }
     },
   },

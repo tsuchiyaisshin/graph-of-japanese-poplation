@@ -94,12 +94,6 @@ export default {
       },
     },
   }),
-  watch: {
-    series: {
-      handler: function() {},
-      deep: true,
-    },
-  },
 }
 </script>
 

@@ -12,7 +12,7 @@
           v-for="prefecture in prefectures"
           :name="prefecture.prefName"
           :code="prefecture.prefCode"
-          @add="addSeries"
+          @add="changeSeries"
         ></select-box>
       </div>
       <PopulationLineChart
@@ -41,8 +41,14 @@ export default {
     this.prefectures = result
   },
   methods: {
-    async addSeries(...args) {
-      await this.series.push(args[0])
+    async changeSeries(...args) {
+      if (args[1]) {
+        await this.series.push(args[0])
+        console.log('push')
+      } else {
+        this.series = this.series.filter(series => series.name !== args[0])
+      }
+      //TODO: 強制レンダリンを修正する。
       this.showChart = false
       this.$nextTick(() => (this.showChart = true))
     },
